@@ -9,6 +9,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` - Run ESLint to check code quality
 - `npm run preview` - Preview the production build locally
 
+## Git Commit Message Style
+
+Follow this format for commit messages:
+
+```
+Brief summary of changes (50 chars or less)
+
+- Bullet point describing key change or feature
+- Another bullet point for significant modification
+- Additional bullet points for other important changes
+- Include technical details when relevant
+- Mention any breaking changes or new dependencies
+```
+
+Example:
+```
+Redesign BlogPost component with modern, responsive layout
+
+- Add Header component integration for consistent navigation
+- Implement hero section with gradient background and metadata overlay
+- Replace prose classes with custom typography following style guide
+- Add breadcrumb navigation and back-to-blog functionality
+- Create author card section with bio and social links
+- Add related posts section with hover effects
+- Implement ScrollToTop component for proper page navigation
+- Update CLAUDE.md with comprehensive individual page patterns
+- Ensure mobile-responsive design across all screen sizes
+```
+
 ## Project Architecture
 
 This is a React + TypeScript personal portfolio website built with Vite and styled with Tailwind CSS.
