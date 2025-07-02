@@ -1,6 +1,7 @@
 import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { Calendar, Clock, ArrowLeft, User, Share2, Github, Linkedin, Twitter, ChevronRight, Home } from 'lucide-react';
+import Header from './Header';
 
 interface BlogPostData {
   id: string;
@@ -245,59 +246,233 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <button 
-            onClick={goBack}
-            className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors mb-4"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            <span>Back to Blog</span>
-          </button>
-          
-          <div className="flex items-center text-sm text-gray-500 mb-4">
-            <Calendar className="h-4 w-4 mr-2" />
-            <span>{new Date(post.date).toLocaleDateString()}</span>
-            <Clock className="h-4 w-4 ml-4 mr-2" />
-            <span>{post.readTime}</span>
-            <User className="h-4 w-4 ml-4 mr-2" />
-            <span>{post.author}</span>
-          </div>
-          
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {post.title}
-          </h1>
-          
-          <div className="flex items-center mb-6">
-            <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-              post.type === 'video' 
-                ? 'bg-red-100 text-red-800' 
-                : 'bg-blue-100 text-blue-800'
-            }`}>
-              {post.type === 'video' ? 'Video' : 'Article'}
-            </span>
-          </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+      
+      {/* Breadcrumb Navigation */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-gray-500">
+            <Link to="/" className="hover:text-blue-600 transition-colors flex items-center">
+              <Home className="h-4 w-4 mr-1" />
+              Home
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <Link to="/#blog" className="hover:text-blue-600 transition-colors">
+              Blog
+            </Link>
+            <ChevronRight className="h-4 w-4" />
+            <span className="text-blue-600 font-medium truncate">{post.title}</span>
+          </nav>
         </div>
-      </header>
-
-      {/* Hero Image */}
-      <div className="w-full h-64 md:h-96 overflow-hidden">
-        <img 
-          src={post.image} 
-          alt={post.title}
-          className="w-full h-full object-cover"
-        />
       </div>
 
-      {/* Content */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div 
-          className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-ul:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <button 
+                onClick={goBack}
+                className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors mb-6"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                <span>Back to Blog</span>
+              </button>
+
+              <div className="flex items-center space-x-4 mb-4">
+                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                  post.type === 'video' 
+                    ? 'bg-red-100 text-red-800' 
+                    : 'bg-blue-100 text-blue-800'
+                }`}>
+                  {post.type === 'video' ? 'Video' : 'Article'}
+                </span>
+                <div className="flex items-center text-sm text-gray-600">
+                  <Calendar className="h-4 w-4 mr-1" />
+                  <span>{new Date(post.date).toLocaleDateString()}</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <Clock className="h-4 w-4 mr-1" />
+                  <span>{post.readTime}</span>
+                </div>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                {post.title}
+              </h1>
+              
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                {post.excerpt}
+              </p>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                    <User className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{post.author}</p>
+                    <p className="text-sm text-gray-600">Developer & Tech Writer</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <span className="text-sm text-gray-600 mr-2">Share:</span>
+                  <a href="#" className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform">
+                    <Twitter className="h-4 w-4 text-blue-400" />
+                  </a>
+                  <a href="#" className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform">
+                    <Linkedin className="h-4 w-4 text-blue-600" />
+                  </a>
+                  <button className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform">
+                    <Share2 className="h-4 w-4 text-gray-600" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Article Content */}
+      <article className="py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="article-content">
+            <div dangerouslySetInnerHTML={{ __html: post.content.replace(
+              /<h2>/g, '<h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 mt-12 first:mt-0">'
+            ).replace(
+              /<p>/g, '<p class="text-lg text-gray-700 leading-relaxed mb-6">'
+            ).replace(
+              /<ul>/g, '<ul class="text-lg text-gray-700 mb-6 space-y-2">'
+            ).replace(
+              /<li>/g, '<li class="flex items-start"><span class="text-blue-600 mr-3 mt-2">•</span><span>'
+            ).replace(
+              /<\/li>/g, '</span></li>'
+            ).replace(
+              /<code>/g, '<code class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono">'
+            ).replace(
+              /<pre><code/g, '<pre class="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto mb-6"><code'
+            ).replace(
+              /<\/code><\/pre>/g, '</code></pre>'
+            )}} />
+          </div>
+        </div>
       </article>
+
+      {/* Author Card */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                <User className="h-12 w-12 text-white" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{post.author}</h3>
+                <p className="text-blue-600 font-medium mb-4">Full-Stack Developer & Tech Enthusiast</p>
+                <p className="text-gray-600 mb-6">
+                  Passionate about creating scalable applications and sharing knowledge through writing. 
+                  When not coding, you can find me exploring new technologies and mentoring fellow developers.
+                </p>
+                <div className="flex justify-center md:justify-start space-x-4">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                     className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                    <Github className="h-5 w-5 text-gray-700" />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                     className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                    <Linkedin className="h-5 w-5 text-blue-600" />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                     className="p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                    <Twitter className="h-5 w-5 text-blue-400" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Posts */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Related Articles
+            </h2>
+            <p className="text-xl text-gray-600">
+              Continue exploring more development insights
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Object.entries(blogPosts)
+              .filter(([key]) => key !== post.id)
+              .slice(0, 3)
+              .map(([key, relatedPost]) => (
+                <Link key={key} to={`/blog/${relatedPost.id}`} className="block group">
+                  <article className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <div className="relative">
+                      <img 
+                        src={relatedPost.image} 
+                        alt={relatedPost.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          relatedPost.type === 'video' 
+                            ? 'bg-red-100 text-red-800' 
+                            : 'bg-blue-100 text-blue-800'
+                        }`}>
+                          {relatedPost.type === 'video' ? 'Video' : 'Article'}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6">
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        <span>{new Date(relatedPost.date).toLocaleDateString()}</span>
+                        <Clock className="h-4 w-4 ml-4 mr-2" />
+                        <span>{relatedPost.readTime}</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                        {relatedPost.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 mb-4 line-clamp-3">
+                        {relatedPost.excerpt}
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link 
+              to="/#blog" 
+              className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              <span>View All Posts</span>
+              <ArrowLeft className="h-5 w-5 rotate-180" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
