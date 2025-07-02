@@ -61,15 +61,13 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="/resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to="/resume"
               className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               <Download className="h-4 w-4" />
               <span>Resume</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,15 +95,13 @@ const Header: React.FC = () => {
               <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
                 Contact
               </button>
-              <a 
-                href="/resume.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/resume"
                 className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors w-fit"
               >
                 <Download className="h-4 w-4" />
                 <span>Resume</span>
-              </a>
+              </Link>
             </nav>
           </div>
         )}
