@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, Play } from 'lucide-react';
 
 const Blog: React.FC = () => {
-  const blogPosts = [
+  const allBlogPosts = [
     {
       id: "building-scalable-react-applications",
       title: "Building Scalable React Applications",
@@ -11,7 +11,8 @@ const Blog: React.FC = () => {
       date: "2024-01-15",
       readTime: "8 min read",
       type: "article",
-      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=400"
+      image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=400",
+      pinned: true
     },
     {
       id: "typescript-tips-for-better-code",
@@ -39,8 +40,41 @@ const Blog: React.FC = () => {
       readTime: "15 min read",
       type: "video",
       image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: "api-design-best-practices",
+      title: "RESTful API Design Best Practices",
+      excerpt: "Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
+      date: "2024-02-20",
+      readTime: "10 min read",
+      type: "article",
+      image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=400",
+      pinned: true
+    },
+    {
+      id: "performance-optimization-javascript",
+      title: "JavaScript Performance Optimization Techniques",
+      excerpt: "Discover practical techniques to optimize JavaScript performance and create faster web applications.",
+      date: "2024-02-15",
+      readTime: "14 min read",
+      type: "video",
+      image: "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&w=400"
+    },
+    {
+      id: "docker-containerization-guide",
+      title: "Complete Guide to Docker Containerization",
+      excerpt: "Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
+      date: "2024-02-10",
+      readTime: "11 min read",
+      type: "article",
+      image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ];
+
+  // Get pinned posts first, then fill with recent posts to total 4
+  const pinnedPosts = allBlogPosts.filter(post => post.pinned);
+  const nonPinnedPosts = allBlogPosts.filter(post => !post.pinned).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const homeBlogPosts = [...pinnedPosts, ...nonPinnedPosts].slice(0, 4);
 
   return (
     <section id="blog" className="py-20 bg-white">
@@ -56,7 +90,7 @@ const Blog: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {blogPosts.map((post, index) => (
+          {homeBlogPosts.map((post, index) => (
             <Link 
               key={index}
               to={`/blog/${post.id}`}
@@ -76,7 +110,7 @@ const Blog: React.FC = () => {
                       </div>
                     </div>
                   )}
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex space-x-2">
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                       post.type === 'video' 
                         ? 'bg-red-100 text-red-800' 
@@ -84,6 +118,11 @@ const Blog: React.FC = () => {
                     }`}>
                       {post.type === 'video' ? 'Video' : 'Article'}
                     </span>
+                    {post.pinned && (
+                      <span className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                        Pinned
+                      </span>
+                    )}
                   </div>
                 </div>
                 
@@ -114,13 +153,13 @@ const Blog: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a 
-            href="#" 
+          <Link 
+            to="/blogs" 
             className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
           >
             <span>View All Posts</span>
             <ArrowRight className="h-5 w-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

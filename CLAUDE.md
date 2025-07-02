@@ -23,6 +23,8 @@ Brief summary of changes (50 chars or less)
 - Mention any breaking changes or new dependencies
 ```
 
+**Important**: Do not include any mentions of Claude, AI assistance, or code generation tools in commit messages.
+
 Example:
 ```
 Redesign BlogPost component with modern, responsive layout

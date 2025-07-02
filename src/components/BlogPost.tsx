@@ -232,6 +232,318 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
         <h2>Conclusion</h2>
         <p>Effective database design requires understanding your application's requirements, performance needs, and growth patterns. Take time to plan your schema carefully - it will save you significant effort later.</p>
       `
+    },
+    'api-design-best-practices': {
+      id: 'api-design-best-practices',
+      title: "RESTful API Design Best Practices",
+      excerpt: "Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
+      date: "2024-02-20",
+      readTime: "10 min read",
+      type: "article",
+      image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800",
+      author: "Ken Saganski",
+      content: `
+        <h2>Introduction to RESTful API Design</h2>
+        <p>Creating well-designed APIs is crucial for building maintainable and scalable applications. REST (Representational State Transfer) provides a set of architectural principles that guide API design.</p>
+        
+        <h2>Resource-Based URLs</h2>
+        <p>Design your URLs around resources, not actions:</p>
+        <ul>
+          <li>Use nouns, not verbs: <code>/users</code> instead of <code>/getUsers</code></li>
+          <li>Use plural nouns for collections: <code>/users</code>, <code>/products</code></li>
+          <li>Use nested resources for relationships: <code>/users/123/orders</code></li>
+          <li>Keep URLs simple and intuitive</li>
+        </ul>
+        
+        <h2>HTTP Methods and Status Codes</h2>
+        <p>Use HTTP methods correctly:</p>
+        <ul>
+          <li><code>GET</code> - Retrieve data (idempotent)</li>
+          <li><code>POST</code> - Create new resources</li>
+          <li><code>PUT</code> - Update entire resources (idempotent)</li>
+          <li><code>PATCH</code> - Partial updates</li>
+          <li><code>DELETE</code> - Remove resources (idempotent)</li>
+        </ul>
+        
+        <h2>Consistent Response Format</h2>
+        <p>Maintain consistency across all endpoints:</p>
+        <pre><code>{
+  "data": { ... },
+  "meta": {
+    "timestamp": "2024-02-20T10:30:00Z",
+    "version": "1.0"
+  },
+  "errors": []
+}</code></pre>
+        
+        <h2>Versioning Strategy</h2>
+        <p>Plan for API evolution:</p>
+        <ul>
+          <li>Use URL versioning: <code>/api/v1/users</code></li>
+          <li>Header versioning: <code>Accept: application/vnd.api+json;version=1</code></li>
+          <li>Maintain backward compatibility when possible</li>
+          <li>Deprecate old versions gracefully</li>
+        </ul>
+        
+        <h2>Error Handling</h2>
+        <p>Provide meaningful error responses:</p>
+        <pre><code>{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid input data",
+    "details": [
+      {
+        "field": "email",
+        "message": "Email format is invalid"
+      }
+    ]
+  }
+}</code></pre>
+        
+        <h2>Security Best Practices</h2>
+        <p>Implement security from the start:</p>
+        <ul>
+          <li>Use HTTPS everywhere</li>
+          <li>Implement proper authentication and authorization</li>
+          <li>Validate and sanitize all input</li>
+          <li>Rate limiting to prevent abuse</li>
+          <li>Don't expose sensitive data in URLs</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        <p>Good API design is about creating interfaces that are intuitive, consistent, and maintainable. Following these best practices will help you build APIs that developers enjoy working with and that can evolve with your application's needs.</p>
+      `
+    },
+    'performance-optimization-javascript': {
+      id: 'performance-optimization-javascript',
+      title: "JavaScript Performance Optimization Techniques",
+      excerpt: "Discover practical techniques to optimize JavaScript performance and create faster web applications.",
+      date: "2024-02-15",
+      readTime: "14 min read",
+      type: "video",
+      image: "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&w=800",
+      author: "Ken Saganski",
+      content: `
+        <h2>Understanding JavaScript Performance</h2>
+        <p>JavaScript performance optimization is crucial for creating smooth user experiences. This guide covers practical techniques to make your applications faster and more responsive.</p>
+        
+        <h2>Memory Management</h2>
+        <p>Proper memory management prevents memory leaks and improves performance:</p>
+        <ul>
+          <li>Remove event listeners when components unmount</li>
+          <li>Clear intervals and timeouts</li>
+          <li>Avoid creating unnecessary closures</li>
+          <li>Use weak references when appropriate</li>
+        </ul>
+        
+        <h2>DOM Optimization</h2>
+        <p>Minimize DOM manipulation for better performance:</p>
+        <pre><code>// Bad: Multiple DOM queries
+document.getElementById('item1').style.display = 'none';
+document.getElementById('item2').style.display = 'none';
+document.getElementById('item3').style.display = 'none';
+
+// Good: Batch operations
+const items = ['item1', 'item2', 'item3'];
+const fragment = document.createDocumentFragment();
+items.forEach(id => {
+  const element = document.getElementById(id);
+  element.style.display = 'none';
+});</code></pre>
+        
+        <h2>Event Handling Optimization</h2>
+        <p>Optimize event handling for better responsiveness:</p>
+        <ul>
+          <li>Use event delegation for dynamic content</li>
+          <li>Debounce expensive operations</li>
+          <li>Use passive event listeners when possible</li>
+          <li>Remove unused event listeners</li>
+        </ul>
+        
+        <h2>Code Splitting and Lazy Loading</h2>
+        <p>Reduce initial bundle size with smart loading:</p>
+        <pre><code>// Dynamic imports for code splitting
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+// Image lazy loading
+const img = new Image();
+img.loading = 'lazy';
+img.src = 'large-image.jpg';</code></pre>
+        
+        <h2>Algorithm Optimization</h2>
+        <p>Choose efficient algorithms and data structures:</p>
+        <ul>
+          <li>Use <code>Map</code> and <code>Set</code> for fast lookups</li>
+          <li>Avoid nested loops when possible</li>
+          <li>Use binary search for sorted arrays</li>
+          <li>Cache computed results (memoization)</li>
+        </ul>
+        
+        <h2>Web Workers for Heavy Tasks</h2>
+        <p>Offload CPU-intensive tasks to prevent UI blocking:</p>
+        <pre><code>// main.js
+const worker = new Worker('worker.js');
+worker.postMessage({ data: largeDataset });
+worker.onmessage = (e) => {
+  console.log('Result:', e.data);
+};
+
+// worker.js
+self.onmessage = (e) => {
+  const result = performHeavyCalculation(e.data);
+  self.postMessage(result);
+};</code></pre>
+        
+        <h2>Performance Monitoring</h2>
+        <p>Measure and monitor performance continuously:</p>
+        <ul>
+          <li>Use browser DevTools Performance tab</li>
+          <li>Implement performance budgets</li>
+          <li>Monitor Core Web Vitals</li>
+          <li>Use tools like Lighthouse and WebPageTest</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        <p>JavaScript performance optimization is an ongoing process. Start with measuring current performance, identify bottlenecks, and apply these techniques systematically. Remember that premature optimization can be counterproductive - focus on real performance issues that impact user experience.</p>
+      `
+    },
+    'docker-containerization-guide': {
+      id: 'docker-containerization-guide',
+      title: "Complete Guide to Docker Containerization",
+      excerpt: "Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
+      date: "2024-02-10",
+      readTime: "11 min read",
+      type: "article",
+      image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=800",
+      author: "Ken Saganski",
+      content: `
+        <h2>Introduction to Docker</h2>
+        <p>Docker revolutionizes application deployment by packaging applications and their dependencies into portable containers. This guide covers everything you need to know about containerizing your applications.</p>
+        
+        <h2>Docker Fundamentals</h2>
+        <p>Understanding core Docker concepts:</p>
+        <ul>
+          <li><strong>Images</strong> - Read-only templates for creating containers</li>
+          <li><strong>Containers</strong> - Running instances of images</li>
+          <li><strong>Dockerfile</strong> - Instructions for building images</li>
+          <li><strong>Registry</strong> - Storage for Docker images (Docker Hub, ECR)</li>
+        </ul>
+        
+        <h2>Writing Effective Dockerfiles</h2>
+        <p>Create optimized Dockerfiles for your applications:</p>
+        <pre><code># Use specific base image versions
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependency files first (for better caching)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+# Change ownership and switch user
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+
+# Expose port
+EXPOSE 3000
+
+# Start application
+CMD ["npm", "start"]</code></pre>
+        
+        <h2>Multi-Stage Builds</h2>
+        <p>Optimize image size with multi-stage builds:</p>
+        <pre><code># Build stage
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS production
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY package*.json ./
+EXPOSE 3000
+CMD ["npm", "start"]</code></pre>
+        
+        <h2>Docker Compose for Multi-Container Apps</h2>
+        <p>Orchestrate multiple services with Docker Compose:</p>
+        <pre><code>version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - db
+      - redis
+  
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:</code></pre>
+        
+        <h2>Container Security Best Practices</h2>
+        <p>Secure your containers from the start:</p>
+        <ul>
+          <li>Use official base images from trusted sources</li>
+          <li>Keep base images updated</li>
+          <li>Run containers as non-root users</li>
+          <li>Scan images for vulnerabilities</li>
+          <li>Use secrets management for sensitive data</li>
+          <li>Limit container resources</li>
+        </ul>
+        
+        <h2>Monitoring and Logging</h2>
+        <p>Monitor containerized applications effectively:</p>
+        <ul>
+          <li>Use structured logging (JSON format)</li>
+          <li>Implement health checks</li>
+          <li>Monitor resource usage</li>
+          <li>Use centralized logging solutions</li>
+          <li>Set up alerts for critical metrics</li>
+        </ul>
+        
+        <h2>Deployment Strategies</h2>
+        <p>Deploy containers to production:</p>
+        <ul>
+          <li>Use orchestration platforms (Kubernetes, Docker Swarm)</li>
+          <li>Implement rolling deployments</li>
+          <li>Use load balancers for high availability</li>
+          <li>Set up CI/CD pipelines</li>
+          <li>Plan for disaster recovery</li>
+        </ul>
+        
+        <h2>Conclusion</h2>
+        <p>Docker containerization provides consistency, portability, and scalability for modern applications. Start with simple containers and gradually adopt more advanced patterns as your needs grow. Remember that containerization is just one part of a complete deployment strategy.</p>
+      `
     }
   };
 
@@ -241,9 +553,6 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
     return <Navigate to="/" replace />;
   }
 
-  const goBack = () => {
-    window.history.back();
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -272,14 +581,6 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <button 
-                onClick={goBack}
-                className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors mb-6"
-              >
-                <ArrowLeft className="h-5 w-5" />
-                <span>Back to Blog</span>
-              </button>
-
               <div className="flex items-center space-x-4 mb-4">
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                   post.type === 'video' 
