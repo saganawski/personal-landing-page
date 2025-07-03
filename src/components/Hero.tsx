@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Youtube, Instagram, Code } from "lucide-react";
 
 const Hero: React.FC = () => {
   const scrollToContact = () => {
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
         <div className="text-center">
           <div className="mb-8">
             <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">Code Ninja</span>
+              <Code className="h-16 w-16 text-white" />
             </div>
           </div>
 
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com"
+              href="https://github.com/saganawski"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform"
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
               <Github className="h-6 w-6 text-gray-700" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ken-saganski"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform"
@@ -63,12 +63,20 @@ const Hero: React.FC = () => {
               <Linkedin className="h-6 w-6 text-blue-600" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://youtube.com/channel/UCKQVgktV_tdPoJbQj2KNpkw"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform"
             >
-              <Twitter className="h-6 w-6 text-blue-400" />
+              <Youtube className="h-6 w-6 text-red-600" />
+            </a>
+            <a
+              href="https://instagram.com/nullpointninja"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform"
+            >
+              <Instagram className="h-6 w-6 text-pink-600" />
             </a>
           </div>
         </div>

@@ -6,7 +6,8 @@ import {
   Send,
   Github,
   Linkedin,
-  Twitter,
+  Youtube,
+  Instagram,
   MessageCircle,
 } from "lucide-react";
 
@@ -109,7 +110,7 @@ const Contact: React.FC = () => {
               <h4 className="font-semibold text-gray-900 mb-4">Follow Me</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/saganawski"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform"
@@ -117,7 +118,7 @@ const Contact: React.FC = () => {
                   <Github className="h-6 w-6 text-gray-700" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ken-saganski"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform"
@@ -125,12 +126,20 @@ const Contact: React.FC = () => {
                   <Linkedin className="h-6 w-6 text-blue-600" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://youtube.com/channel/UCKQVgktV_tdPoJbQj2KNpkw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform"
                 >
-                  <Twitter className="h-6 w-6 text-blue-400" />
+                  <Youtube className="h-6 w-6 text-red-600" />
+                </a>
+                <a
+                  href="https://instagram.com/nullpointninja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform"
+                >
+                  <Instagram className="h-6 w-6 text-pink-600" />
                 </a>
               </div>
             </div>

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Code2, Database, Smartphone, Globe, Zap, Users } from 'lucide-react';
+import { Cloud, Database, Code2, Globe, Zap, Activity } from 'lucide-react';
 
 const About: React.FC = () => {
   const skills = [
-    { icon: Code2, name: 'Frontend Development', description: 'React, TypeScript, Tailwind CSS' },
-    { icon: Database, name: 'Backend Development', description: 'Node.js, Python, PostgreSQL' },
-    { icon: Smartphone, name: 'Mobile Development', description: 'React Native, Flutter' },
-    { icon: Globe, name: 'Web Technologies', description: 'HTML5, CSS3, JavaScript ES6+' },
-    { icon: Zap, name: 'Performance Optimization', description: 'Speed & UX improvements' },
-    { icon: Users, name: 'Team Collaboration', description: 'Agile, Code Reviews, Mentoring' },
+    { icon: Cloud, name: 'AWS Cloud', description: 'Elastic Beanstalk, EC2, RDS, S3, CloudWatch, SNS, serverless' },
+    { icon: Activity, name: 'SaaS Platform Development', description: 'Healthcare IT solutions, scalable architectures' },
+    { icon: Database, name: 'Backend Development', description: 'Java, Python, Scala, Ruby, Spring Boot' },
+    { icon: Code2, name: 'Frontend Development', description: 'React, Angular, JavaScript, HTML, jQuery' },
+    { icon: Zap, name: 'Data Processing & ETL', description: 'AWS Glue, large dataset handling' },
+    { icon: Globe, name: 'API Integration', description: 'Salesforce, third-party healthcare systems' },
   ];
 
   return (
@@ -19,9 +19,10 @@ const About: React.FC = () => {
             About Me
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I'm a passionate software developer with 5+ years of experience building 
-            web applications and mobile solutions. I specialize in creating user-friendly, 
-            scalable applications that solve real-world problems.
+            I'm a passionate full-stack software developer with 8+ years of professional experience 
+            specializing in AWS serverless architecture and SaaS healthcare technology. I recently 
+            built an innovative application using algorithms to detect diseases in hospital patients, 
+            improving patient care and hospital workflows through data-driven insights.
           </p>
         </div>
 
@@ -48,26 +49,23 @@ const About: React.FC = () => {
               My Development Journey
             </h3>
             <p className="text-lg mb-6 opacity-90">
-              From startup environments to enterprise solutions, I've helped companies 
-              transform their ideas into successful digital products. My experience spans 
-              across fintech, e-commerce, and SaaS platforms.
+              From SaaS healthcare IT platforms to AWS serverless consulting, I've specialized 
+              in building scalable solutions that improve patient care and streamline business 
+              operations. My experience includes optimizing query performance, developing ETL 
+              pipelines, and creating comprehensive management platforms for diverse industries.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
-                <div className="text-3xl font-bold">50+</div>
-                <div className="text-sm opacity-80">Projects Completed</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold">5+</div>
+                <div className="text-3xl font-bold">8+</div>
                 <div className="text-sm opacity-80">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">20+</div>
-                <div className="text-sm opacity-80">Happy Clients</div>
+                <div className="text-3xl font-bold">SaaS</div>
+                <div className="text-sm opacity-80">Healthcare Specialist</div>
               </div>
               <div>
-                <div className="text-3xl font-bold">99%</div>
-                <div className="text-sm opacity-80">Success Rate</div>
+                <div className="text-3xl font-bold">AWS</div>
+                <div className="text-sm opacity-80">Serverless Expert</div>
               </div>
             </div>
           </div>
