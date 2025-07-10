@@ -1,7 +1,10 @@
 import React from 'react';
-import { Layout, Rocket, CheckCircle, ArrowRight } from 'lucide-react';
+import { Layout, Rocket, CheckCircle, ArrowRight, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
+  
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -22,7 +25,7 @@ const Services: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Free Landing Page Service */}
           <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center mb-6">
@@ -64,7 +67,7 @@ const Services: React.FC = () => {
             </div>
 
             <button 
-              onClick={scrollToContact}
+              onClick={() => navigate('/free-landing-page')}
               className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center justify-center space-x-2"
             >
               <span>Get Your Free Landing Page</span>
@@ -125,6 +128,59 @@ const Services: React.FC = () => {
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
             >
               <span>Build My Prototype</span>
+              <ArrowRight className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Contracting & Consulting Service */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="flex items-center mb-6">
+              <div className="p-4 bg-purple-100 rounded-lg mr-4">
+                <Users className="h-8 w-8 text-purple-600" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900">Contracting & Consulting</h3>
+                <p className="text-purple-600 font-semibold text-lg">Custom Rates</p>
+              </div>
+            </div>
+
+            <p className="text-gray-600 mb-6">
+              Leverage my years of contracting and consulting experience to help your team 
+              succeed. From code reviews to architecture decisions, I'll provide the expertise you need.
+            </p>
+
+            <div className="space-y-3 mb-8">
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Technical leadership</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Code review & audits</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Architecture consulting</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Team mentoring</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Project rescue</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-purple-500 mr-3" />
+                <span className="text-gray-700">Flexible engagement</span>
+              </div>
+            </div>
+
+            <button 
+              onClick={scrollToContact}
+              className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium flex items-center justify-center space-x-2"
+            >
+              <span>Discuss Your Needs</span>
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
