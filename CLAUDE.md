@@ -194,3 +194,202 @@ The site uses smooth scrolling navigation implemented in the Header component. N
 - **Touch Targets**: Ensure 44px minimum touch targets for navigation
 - **Reading Experience**: Optimized line length and spacing for mobile reading
 - **Navigation**: Collapsible table of contents for long-form content
+
+## Blog System Design Rules
+
+### Blog Data Structure
+Each blog post must follow this exact interface structure:
+```typescript
+interface BlogPost {
+  id: string;           // URL-friendly slug (e.g., "building-scalable-react-applications")
+  title: string;        // Display title
+  excerpt: string;      // Brief description for cards and meta
+  date: string;         // Format: "YYYY-MM-DD"
+  readTime: string;     // Format: "X min read" 
+  type: "article" | "video";  // Content type for badges and icons
+  image: string;        // Featured image URL (400px width for cards, 800px for hero)
+  author: string;       // Author name
+  pinned?: boolean;     // Optional: featured/pinned status
+  content: string;      // HTML content with specific formatting requirements
+}
+```
+
+### Blog Card Component Styling (Blog.tsx & AllBlogs.tsx)
+- **Card Container**: `bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer`
+- **Image Container**: `relative` with `w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300`
+- **Content Padding**: `p-6` for card content area
+- **Metadata Row**: `flex items-center text-sm text-gray-500 mb-3` with Calendar and Clock icons
+- **Title**: `text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors`
+- **Excerpt**: `text-gray-600 mb-4 line-clamp-3` (requires Tailwind line-clamp plugin)
+- **Read More**: `flex items-center text-blue-600 font-medium group-hover:text-blue-700` with ArrowRight icon
+
+### Blog Type Badges
+- **Article Badge**: `bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium`
+- **Video Badge**: `bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium`
+- **Pinned Badge**: `bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium`
+- **Badge Container**: `absolute top-4 left-4 flex space-x-2` on image overlay
+
+### Video Post Indicators
+- **Play Button Overlay**: Center-positioned with `absolute inset-0 flex items-center justify-center`
+- **Play Button Styling**: `bg-black/50 rounded-full p-4` containing `Play` icon `h-8 w-8 text-white`
+
+### Blog Grid Layouts
+- **Home Section Grid**: `grid-cols-1 md:grid-cols-2 gap-8` (shows 4 posts maximum)
+- **All Blogs Grid**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8` (shows all posts)
+- **Related Posts Grid**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8` (shows 3 posts)
+
+### Blog Post Priority & Sorting
+- **Home Page**: Show pinned posts first, then recent posts (limit 4 total)
+- **All Blogs Page**: Show pinned posts first, then by date descending
+- **Related Posts**: Exclude current post, show 3 most recent others
+
+### Individual Blog Post Layout (BlogPost.tsx)
+
+#### Page Structure
+- **Full Page Layout**: `min-h-screen bg-white` with Header component
+- **Breadcrumb Navigation**: Gray background section with Home > Blog > Post title hierarchy
+- **Hero Section**: `bg-gradient-to-br from-blue-50 to-indigo-100 py-20` two-column layout
+
+#### Hero Section Design
+- **Grid Layout**: `grid-cols-1 lg:grid-cols-2 gap-12 items-center`
+- **Left Column**: Metadata, title, excerpt, author info, and share buttons
+- **Right Column**: Featured image with `rounded-2xl overflow-hidden shadow-2xl`
+- **Title**: `text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight`
+- **Excerpt**: `text-xl text-gray-600 mb-8 leading-relaxed`
+
+#### Author Section in Hero
+- **Author Avatar**: `w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center` with User icon
+- **Author Info**: Name as `font-semibold text-gray-900`, role as `text-sm text-gray-600`
+- **Share Buttons**: Social icons in `p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow hover:scale-105 transform`
+
+#### Article Content Styling
+- **Content Container**: `max-w-4xl mx-auto px-4 sm:px-6 lg:px-8` for optimal reading width
+- **Section Padding**: `py-16` for main article section
+- **Typography Overrides**: Dynamic HTML class injection for consistent styling:
+  - H2: `text-2xl md:text-3xl font-bold text-gray-900 mb-6 mt-12 first:mt-0`
+  - Paragraphs: `text-lg text-gray-700 leading-relaxed mb-6`
+  - Lists: `text-lg text-gray-700 mb-6 space-y-2`
+  - List Items: Custom bullet with `text-blue-600 mr-3 mt-2` colored bullet
+  - Inline Code: `bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono`
+  - Code Blocks: `bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto mb-6`
+
+#### Author Card Section
+- **Section Background**: `py-16 bg-gray-50`
+- **Card Styling**: `bg-white rounded-2xl p-8 shadow-lg`
+- **Layout**: Flexible column/row with `flex-col md:flex-row items-center md:items-start`
+- **Large Avatar**: `w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full`
+- **Social Links**: `p-3 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors`
+
+#### Breadcrumb Navigation
+- **Background**: `bg-gray-50 border-b border-gray-200`
+- **Links**: `text-sm text-gray-500` with `hover:text-blue-600 transition-colors`
+- **Current Page**: `text-blue-600 font-medium truncate`
+- **Separators**: ChevronRight icons `h-4 w-4`
+- **Home Icon**: Include Home icon in first breadcrumb link
+
+#### Related Posts Section
+- **Section Title**: `text-3xl md:text-4xl font-bold text-gray-900 mb-4`
+- **Grid**: Same card styling as blog listing pages
+- **CTA Button**: Link back to blog section with `bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700`
+
+### All Blogs Page Features (AllBlogs.tsx)
+
+#### Search and Filter System
+- **Search Input**: `w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500`
+- **Search Icon**: `absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400`
+- **Filter Dropdown**: `pl-10 pr-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500`
+- **Filter Options**: "All Types", "Articles", "Videos"
+- **Search Container**: `max-w-2xl mx-auto flex flex-col sm:flex-row gap-4`
+
+#### Empty State
+- **No Results Container**: `text-center py-16`
+- **Search Icon**: `h-16 w-16 mx-auto mb-4 text-gray-400`
+- **Empty State Text**: `text-2xl font-bold text-gray-900 mb-2` and `text-gray-600`
+
+#### Results Counter
+- **Counter Display**: `text-lg text-gray-600` showing "X post(s) found"
+- **Positioned**: `text-center mb-12` above the results grid
+
+### Blog Content Formatting Rules
+
+#### HTML Content Structure
+Blog post content should use semantic HTML with these specific patterns:
+- **Headings**: Use `<h2>` for main sections (automatically styled)
+- **Paragraphs**: Use `<p>` tags for body text (automatically styled)
+- **Lists**: Use `<ul>` and `<li>` for bulleted lists (custom bullet styling applied)
+- **Code**: Use `<code>` for inline code, `<pre><code>` for code blocks
+- **Strong Text**: Use `<strong>` for bold emphasis
+
+#### Code Block Requirements
+- **Inline Code**: Single backticks become gray background pills
+- **Code Blocks**: Triple backticks become dark-themed blocks with syntax highlighting
+- **Language Support**: Include language hints for proper highlighting
+- **Overflow Handling**: Horizontal scroll for long code lines
+
+### Blog Navigation Patterns
+
+#### Internal Linking
+- **Blog Home Link**: Always use `/#blog` for main blog section
+- **Individual Posts**: Use `/blog/{post-id}` pattern
+- **All Blogs**: Use `/blogs` route
+- **Back Navigation**: Include back to blog options on individual posts
+
+#### URL Structure
+- **Post URLs**: `/blog/{slug}` where slug matches the post ID
+- **Consistent Routing**: All blog routes follow React Router patterns
+- **SEO-Friendly**: Use descriptive slugs that match post titles
+
+### Blog Responsive Design
+
+#### Mobile Optimizations
+- **Card Stacking**: Single column on mobile, multi-column on larger screens
+- **Hero Layout**: Stack hero content vertically on mobile
+- **Image Sizing**: Maintain aspect ratios across all screen sizes
+- **Touch Targets**: Ensure all interactive elements meet 44px minimum
+- **Reading Width**: Constrain content width for optimal mobile reading
+
+#### Breakpoint Strategy
+- **Mobile First**: Design for mobile, enhance for larger screens
+- **Grid Responsiveness**: Use `md:grid-cols-2 lg:grid-cols-3` pattern
+- **Typography Scaling**: Scale headings with `text-3xl md:text-4xl` pattern
+- **Spacing Adjustments**: Reduce padding/margins on mobile
+
+### Blog Performance Guidelines
+
+#### Image Optimization
+- **Featured Images**: Optimize for web with appropriate compression
+- **Responsive Images**: Consider different sizes for different layouts
+- **Loading Strategy**: Use lazy loading for blog post images
+- **Alt Text**: Always include descriptive alt text for accessibility
+
+#### Content Loading
+- **Static Content**: Blog posts stored as static data for fast loading
+- **Code Splitting**: Consider lazy loading for individual blog post content
+- **Search Performance**: Client-side filtering for fast search results
+
+### Blog Accessibility Requirements
+
+#### Screen Reader Support
+- **Semantic HTML**: Use proper heading hierarchy and semantic elements
+- **Alt Text**: Descriptive alt text for all images
+- **Link Text**: Clear, descriptive link text for navigation
+- **Form Labels**: Proper labels for search and filter inputs
+
+#### Keyboard Navigation
+- **Focus States**: Clear focus indicators for all interactive elements
+- **Tab Order**: Logical tab order through content
+- **Skip Links**: Consider skip to content links for long pages
+
+### Blog Content Guidelines
+
+#### Writing Style
+- **Technical Focus**: Content should be developer-focused and technical
+- **Code Examples**: Include practical code examples where relevant
+- **Headings**: Use clear, descriptive section headings
+- **Length**: Aim for substantial content (8-15 minute read times)
+
+#### Metadata Requirements
+- **Accurate Read Times**: Calculate based on average reading speed
+- **Relevant Images**: Choose images that relate to the technical content
+- **SEO Optimization**: Use descriptive titles and excerpts
+- **Consistent Dating**: Use ISO date format for consistency

@@ -22,13 +22,16 @@ const BlogPost: React.FC = () => {
     'building-scalable-react-applications': {
       id: 'building-scalable-react-applications',
       title: "Building Scalable React Applications",
-      excerpt: "Learn the best practices for structuring React applications that can grow with your business needs.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Learn the best practices for structuring React applications that can grow with your business needs.",
       date: "2024-01-15",
       readTime: "8 min read",
       type: "article",
       image: "https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Introduction</h2>
         <p>Building scalable React applications requires careful planning and adherence to best practices. In this article, we'll explore the key principles that will help you create maintainable and efficient React applications.</p>
         
@@ -66,13 +69,16 @@ const BlogPost: React.FC = () => {
     'typescript-tips-for-better-code': {
       id: 'typescript-tips-for-better-code',
       title: "TypeScript Tips for Better Code",
-      excerpt: "Discover advanced TypeScript techniques that will make your code more maintainable and bug-free.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Discover advanced TypeScript techniques that will make your code more maintainable and bug-free.",
       date: "2024-01-10",
       readTime: "12 min read",
       type: "video",
       image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Advanced TypeScript Techniques</h2>
         <p>TypeScript offers many powerful features that can help you write more robust and maintainable code. Let's explore some advanced techniques that every TypeScript developer should know.</p>
         
@@ -113,13 +119,16 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
     'modern-css-techniques-2024': {
       id: 'modern-css-techniques-2024',
       title: "Modern CSS Techniques in 2024",
-      excerpt: "Explore the latest CSS features and how they can improve your development workflow and user experience.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Explore the latest CSS features and how they can improve your development workflow and user experience.",
       date: "2024-01-05",
       readTime: "6 min read",
       type: "article",
       image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>CSS Grid and Flexbox Mastery</h2>
         <p>Modern CSS layout systems have revolutionized how we build user interfaces. Let's explore the latest techniques and best practices.</p>
         
@@ -175,13 +184,16 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
     'database-design-fundamentals': {
       id: 'database-design-fundamentals',
       title: "Database Design Fundamentals",
-      excerpt: "A comprehensive guide to designing efficient and scalable database schemas for modern applications.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. A comprehensive guide to designing efficient and scalable database schemas for modern applications.",
       date: "2023-12-28",
       readTime: "15 min read",
       type: "video",
       image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Database Design Principles</h2>
         <p>Good database design is the foundation of any successful application. Let's explore the fundamental principles that guide effective database design.</p>
         
@@ -236,13 +248,16 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
     'api-design-best-practices': {
       id: 'api-design-best-practices',
       title: "RESTful API Design Best Practices",
-      excerpt: "Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
       date: "2024-02-20",
       readTime: "10 min read",
       type: "article",
       image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Introduction to RESTful API Design</h2>
         <p>Creating well-designed APIs is crucial for building maintainable and scalable applications. REST (Representational State Transfer) provides a set of architectural principles that guide API design.</p>
         
@@ -317,13 +332,16 @@ function loggingIdentity&lt;T extends Lengthwise&gt;(arg: T): T {
     'performance-optimization-javascript': {
       id: 'performance-optimization-javascript',
       title: "JavaScript Performance Optimization Techniques",
-      excerpt: "Discover practical techniques to optimize JavaScript performance and create faster web applications.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Discover practical techniques to optimize JavaScript performance and create faster web applications.",
       date: "2024-02-15",
       readTime: "14 min read",
       type: "video",
       image: "https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Understanding JavaScript Performance</h2>
         <p>JavaScript performance optimization is crucial for creating smooth user experiences. This guide covers practical techniques to make your applications faster and more responsive.</p>
         
@@ -410,13 +428,16 @@ self.onmessage = (e) => {
     'docker-containerization-guide': {
       id: 'docker-containerization-guide',
       title: "Complete Guide to Docker Containerization",
-      excerpt: "Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
       date: "2024-02-10",
       readTime: "11 min read",
       type: "article",
       image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=800",
       author: "Ken Saganski",
       content: `
+        <h2>🚧 This is a Placeholder Blog Post</h2>
+        <p><strong>Note:</strong> This is placeholder content created for design demonstration purposes. Real blog content will replace this when actual posts are published.</p>
+        
         <h2>Introduction to Docker</h2>
         <p>Docker revolutionizes application deployment by packaging applications and their dependencies into portable containers. This guide covers everything you need to know about containerizing your applications.</p>
         

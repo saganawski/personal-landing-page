@@ -5,6 +5,7 @@ import BlogPost from './components/BlogPost';
 import AllBlogs from './components/AllBlogs';
 import Resume from './components/Resume';
 import FreeLandingPage from './components/FreeLandingPage';
+import PrototypeApplication from './components/PrototypeApplication';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/free-landing-page" element={<FreeLandingPage />} />
+        <Route path="/prototype-application" element={<PrototypeApplication />} />
       </Routes>
     </Router>
   );

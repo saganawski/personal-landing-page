@@ -99,11 +99,11 @@ const Services: React.FC = () => {
             <div className="space-y-3 mb-8">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">Full-stack web application</span>
+                <span className="text-gray-700">Complete front-end with back-end API integration capability</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">User authentication & database</span>
+                <span className="text-gray-700">User authentication & API integration</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
@@ -124,7 +124,7 @@ const Services: React.FC = () => {
             </div>
 
             <button 
-              onClick={scrollToContact}
+              onClick={() => navigate('/prototype-application')}
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
             >
               <span>Build My Prototype</span>

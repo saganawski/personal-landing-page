@@ -11,7 +11,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "building-scalable-react-applications",
       title: "Building Scalable React Applications",
-      excerpt: "Learn the best practices for structuring React applications that can grow with your business needs.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Learn the best practices for structuring React applications that can grow with your business needs.",
       date: "2024-01-15",
       readTime: "8 min read",
       type: "article",
@@ -21,7 +21,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "typescript-tips-for-better-code",
       title: "TypeScript Tips for Better Code",
-      excerpt: "Discover advanced TypeScript techniques that will make your code more maintainable and bug-free.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Discover advanced TypeScript techniques that will make your code more maintainable and bug-free.",
       date: "2024-01-10",
       readTime: "12 min read",
       type: "video",
@@ -30,7 +30,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "modern-css-techniques-2024",
       title: "Modern CSS Techniques in 2024",
-      excerpt: "Explore the latest CSS features and how they can improve your development workflow and user experience.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Explore the latest CSS features and how they can improve your development workflow and user experience.",
       date: "2024-01-05",
       readTime: "6 min read",
       type: "article",
@@ -39,7 +39,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "database-design-fundamentals",
       title: "Database Design Fundamentals",
-      excerpt: "A comprehensive guide to designing efficient and scalable database schemas for modern applications.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. A comprehensive guide to designing efficient and scalable database schemas for modern applications.",
       date: "2023-12-28",
       readTime: "15 min read",
       type: "video",
@@ -48,7 +48,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "api-design-best-practices",
       title: "RESTful API Design Best Practices",
-      excerpt: "Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Learn how to design clean, maintainable, and scalable REST APIs that developers will love to use.",
       date: "2024-02-20",
       readTime: "10 min read",
       type: "article",
@@ -58,7 +58,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "performance-optimization-javascript",
       title: "JavaScript Performance Optimization Techniques",
-      excerpt: "Discover practical techniques to optimize JavaScript performance and create faster web applications.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Discover practical techniques to optimize JavaScript performance and create faster web applications.",
       date: "2024-02-15",
       readTime: "14 min read",
       type: "video",
@@ -67,7 +67,7 @@ const AllBlogs: React.FC = () => {
     {
       id: "docker-containerization-guide",
       title: "Complete Guide to Docker Containerization",
-      excerpt: "Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
+      excerpt: "🚧 Placeholder blog post for design demonstration. Master Docker fundamentals and learn how to containerize your applications for consistent deployment.",
       date: "2024-02-10",
       readTime: "11 min read",
       type: "article",
