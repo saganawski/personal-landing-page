@@ -588,9 +588,12 @@ volumes:
               Home
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link to="/#blog" className="hover:text-blue-600 transition-colors">
+            <a 
+              href={`${import.meta.env.BASE_URL || '/'}#blog`}
+              className="hover:text-blue-600 transition-colors"
+            >
               Blog
-            </Link>
+            </a>
             <ChevronRight className="h-4 w-4" />
             <span className="text-blue-600 font-medium truncate">{post.title}</span>
           </nav>
@@ -785,13 +788,13 @@ volumes:
           </div>
           
           <div className="text-center mt-12">
-            <Link 
-              to="/#blog" 
+            <a 
+              href={`${import.meta.env.BASE_URL || '/'}#blog`}
               className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               <span>View All Posts</span>
               <ArrowLeft className="h-5 w-5 rotate-180" />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

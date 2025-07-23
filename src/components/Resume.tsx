@@ -68,9 +68,11 @@ const Resume: React.FC = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
+    const baseUrl = import.meta.env.BASE_URL || "/";
+    
     if (location.pathname !== "/") {
       // If not on home page, navigate to home with hash
-      window.location.href = `/#${sectionId}`;
+      window.location.href = `${baseUrl}#${sectionId}`;
       return;
     }
 

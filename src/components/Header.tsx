@@ -9,9 +9,11 @@ const Header: React.FC = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (sectionId: string) => {
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    
     if (location.pathname !== '/') {
       // If not on home page, navigate to home with hash
-      window.location.href = `/#${sectionId}`;
+      window.location.href = `${baseUrl}#${sectionId}`;
       return;
     }
     
@@ -23,12 +25,14 @@ const Header: React.FC = () => {
   };
 
   const handleLogoClick = () => {
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    
     if (location.pathname === '/') {
       // If on home page, scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // If on other page, navigate to home
-      window.location.href = '/';
+      window.location.href = baseUrl;
     }
   };
 

@@ -419,7 +419,10 @@ const FreeLandingPage: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => navigate("/#contact")}
+              onClick={() => {
+                const baseUrl = import.meta.env.BASE_URL || '/';
+                window.location.href = `${baseUrl}#contact`;
+              }}
               className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium flex items-center justify-center space-x-2"
             >
               <span>Contact Me Now</span>
