@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import BlogPost from './components/BlogPost';
-import AllBlogs from './components/AllBlogs';
-import Resume from './components/Resume';
-import FreeLandingPage from './components/FreeLandingPage';
-import PrototypeApplication from './components/PrototypeApplication';
-import ScrollToTop from './components/ScrollToTop';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import BlogPost from "./components/BlogPost";
+import AllBlogs from "./components/AllBlogs";
+import Resume from "./components/Resume";
+import FreeLandingPage from "./components/FreeLandingPage";
+import PrototypeApplication from "./components/PrototypeApplication";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/personal-landing-page">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,10 +18,14 @@ function App() {
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/free-landing-page" element={<FreeLandingPage />} />
-        <Route path="/prototype-application" element={<PrototypeApplication />} />
+        <Route
+          path="/prototype-application"
+          element={<PrototypeApplication />}
+        />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
