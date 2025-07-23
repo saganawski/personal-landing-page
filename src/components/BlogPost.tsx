@@ -788,13 +788,13 @@ volumes:
           </div>
           
           <div className="text-center mt-12">
-            <a 
-              href={`${import.meta.env.BASE_URL || '/'}#blog`}
+            <Link 
+              to="/blogs"
               className="inline-flex items-center space-x-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
             >
               <span>View All Posts</span>
               <ArrowLeft className="h-5 w-5 rotate-180" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
