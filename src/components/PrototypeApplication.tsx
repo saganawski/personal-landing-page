@@ -82,11 +82,14 @@ const PrototypeApplication: React.FC = () => {
             </button>
 
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Prototype <span className="text-blue-600">Application</span> Development
+              Application <span className="text-blue-600">Concept</span>{" "}
+              Demonstration
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Get a fully functional prototype of your web application idea. Perfect for 
-              validating concepts, attracting investors, or kickstarting your MVP development.
+              Experience an interactive Progressive Web App (PWA) demonstration
+              of your application concept. Perfect for visualizing your ideas,
+              exploring user flows, and discussing full development
+              opportunities.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -94,7 +97,7 @@ const PrototypeApplication: React.FC = () => {
                 onClick={scrollToContact}
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
               >
-                <span>Build My Prototype</span>
+                <span>Create My Demo</span>
                 <ArrowRight className="h-5 w-5" />
               </button>
               <button
@@ -120,8 +123,9 @@ const PrototypeApplication: React.FC = () => {
               Interactive Demo
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience a real prototype application I've built. This food discovery 
-              app demonstrates the kind of functionality you can expect in your prototype.
+              Experience a PWA demonstration I've created. This food discovery
+              app showcases the kind of interactive concept visualization you
+              can expect for your project.
             </p>
           </div>
 
@@ -185,12 +189,13 @@ const PrototypeApplication: React.FC = () => {
                   />
                 </div>
               </div>
-              
+
               {/* Mobile Instructions */}
               {viewMode === "mobile" && (
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
-                    💡 <strong>Try swiping:</strong> Swipe right (❤️) to like or left (❌) to pass on food options
+                    💡 <strong>Try swiping:</strong> Swipe right (❤️) to like or
+                    left (❌) to pass on food options
                   </p>
                 </div>
               )}
@@ -216,7 +221,7 @@ const PrototypeApplication: React.FC = () => {
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
               >
                 <Mail className="h-5 w-5" />
-                <span>Request Similar App</span>
+                <span>Request Concept Demo</span>
               </button>
             </div>
           </div>
@@ -228,11 +233,12 @@ const PrototypeApplication: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Prototype Examples
+              Concept Demo Examples
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See the variety of applications I can prototype for you. From analytics dashboards 
-              to e-commerce platforms - I'll bring your idea to life.
+              See the variety of application concepts I can demonstrate for you.
+              From analytics dashboards to e-commerce platforms - I'll create an
+              interactive showcase of your vision.
             </p>
           </div>
 
@@ -242,7 +248,9 @@ const PrototypeApplication: React.FC = () => {
                 key={key}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className={`h-32 bg-gradient-to-r ${example.color} flex items-center justify-center`}>
+                <div
+                  className={`h-32 bg-gradient-to-r ${example.color} flex items-center justify-center`}
+                >
                   <Code className="h-12 w-12 text-white" />
                 </div>
                 <div className="p-6">
@@ -260,7 +268,10 @@ const PrototypeApplication: React.FC = () => {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {example.tech.map((tech, index) => (
-                      <span key={index} className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                      >
                         {tech}
                       </span>
                     ))}
@@ -280,12 +291,12 @@ const PrototypeApplication: React.FC = () => {
               What's Included
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Your prototype application comes with everything you need to validate your idea 
-              and impress stakeholders.
+              Your prototype application comes with everything you need to
+              validate your idea and impress stakeholders.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="p-4 bg-blue-100 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Code className="h-8 w-8 text-blue-600" />
@@ -299,18 +310,6 @@ const PrototypeApplication: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="p-4 bg-green-100 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Server className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Authentication & API Integration
-              </h3>
-              <p className="text-gray-600">
-                User management and back-end API integration
-              </p>
-            </div>
-
-            <div className="text-center">
               <div className="p-4 bg-purple-100 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <Smartphone className="h-8 w-8 text-purple-600" />
               </div>
@@ -319,18 +318,6 @@ const PrototypeApplication: React.FC = () => {
               </h3>
               <p className="text-gray-600">
                 Works perfectly on all devices and screen sizes
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="p-4 bg-orange-100 rounded-lg w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <Shield className="h-8 w-8 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Security Best Practices
-              </h3>
-              <p className="text-gray-600">
-                Built with modern security standards in mind
               </p>
             </div>
 
@@ -369,8 +356,9 @@ const PrototypeApplication: React.FC = () => {
               Transparent Pricing
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              One fixed price for a complete prototype application. No hidden fees, 
-              no surprises - just great value.
+              One fixed price for an interactive PWA demonstration of your
+              concept. No hidden fees, no surprises - just great value for
+              visualizing your ideas.
             </p>
           </div>
 
@@ -380,29 +368,39 @@ const PrototypeApplication: React.FC = () => {
                 <div className="inline-flex items-center px-4 py-1 rounded-full bg-blue-500 text-sm font-medium mb-2">
                   Most Popular
                 </div>
-                <h3 className="text-2xl font-bold">Prototype Application</h3>
+                <h3 className="text-2xl font-bold">Concept Demonstration</h3>
               </div>
-              
+
               <div className="p-8 text-center">
-                <div className="text-5xl font-bold text-gray-900 mb-2">$600</div>
+                <div className="text-5xl font-bold text-gray-900 mb-2">
+                  $600
+                </div>
                 <p className="text-gray-600 mb-8">One-time payment</p>
-                
+
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-gray-700">Complete front-end with back-end API integration capability</span>
+                    <span className="text-gray-700">
+                      Interactive PWA demonstration
+                    </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-gray-700">User authentication & API integration</span>
+                    <span className="text-gray-700">
+                      Concept visualization & user flow
+                    </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-gray-700">Modern UI/UX design</span>
+                    <span className="text-gray-700">
+                      Modern UI/UX design showcase
+                    </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-gray-700">API integration ready</span>
+                    <span className="text-gray-700">
+                      Mobile-responsive experience
+                    </span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
@@ -410,10 +408,12 @@ const PrototypeApplication: React.FC = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-blue-600" />
-                    <span className="text-gray-700">Source code included</span>
+                    <span className="text-gray-700">
+                      Discussion for full development
+                    </span>
                   </div>
                 </div>
-                
+
                 <button
                   onClick={scrollToContact}
                   className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
@@ -457,9 +457,7 @@ const PrototypeApplication: React.FC = () => {
                   <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-bold">
                     3
                   </div>
-                  <h4 className="font-bold text-gray-900 mb-2">
-                    Development
-                  </h4>
+                  <h4 className="font-bold text-gray-900 mb-2">Development</h4>
                   <p className="text-gray-600">
                     I build your prototype with regular updates
                   </p>
@@ -488,17 +486,17 @@ const PrototypeApplication: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Build Your Prototype?
+            Ready to Visualize Your Concept?
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Let's bring your application idea to life with a fully functional prototype. 
-            Perfect for validation, investment, or MVP development.
+            Let's bring your application idea to life with a fully functional
+            prototype. Perfect for validation, investment, or MVP development.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => {
-                const baseUrl = import.meta.env.BASE_URL || '/';
+                const baseUrl = import.meta.env.BASE_URL || "/";
                 window.location.href = `${baseUrl}#contact`;
               }}
               className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium flex items-center justify-center space-x-2"
@@ -509,7 +507,7 @@ const PrototypeApplication: React.FC = () => {
             <button
               onClick={() =>
                 window.open(
-                  "mailto:your-email@example.com?subject=Prototype Application Request",
+                  "mailto:your-email@example.com?subject=Concept Demonstration Request",
                   "_blank",
                 )
               }
@@ -526,3 +524,4 @@ const PrototypeApplication: React.FC = () => {
 };
 
 export default PrototypeApplication;
+

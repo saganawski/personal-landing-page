@@ -92,26 +92,26 @@ const Services: React.FC = () => {
             </div>
 
             <p className="text-gray-600 mb-6">
-              Get a fully functional prototype of your web application idea. Perfect for 
-              validating concepts, attracting investors, or kickstarting your MVP development.
+              Get an interactive Progressive Web App (PWA) demonstration of your application concept. 
+              Ideal for visualizing your ideas and exploring functionality before full development.
             </p>
 
             <div className="space-y-3 mb-8">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">Complete front-end with back-end API integration capability</span>
+                <span className="text-gray-700">Interactive PWA demonstration</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">User authentication & API integration</span>
+                <span className="text-gray-700">Concept visualization & user flow</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">Modern UI/UX design</span>
+                <span className="text-gray-700">Modern UI/UX design showcase</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">API integration ready</span>
+                <span className="text-gray-700">Mobile-responsive experience</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
@@ -119,7 +119,7 @@ const Services: React.FC = () => {
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-blue-500 mr-3" />
-                <span className="text-gray-700">Source code included</span>
+                <span className="text-gray-700">Discussion for full development</span>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ const Services: React.FC = () => {
               onClick={() => navigate('/prototype-application')}
               className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center space-x-2"
             >
-              <span>Build My Prototype</span>
+              <span>Create My Demo</span>
               <ArrowRight className="h-5 w-5" />
             </button>
           </div>
